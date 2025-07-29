@@ -1,0 +1,25 @@
+<header class="container">
+  {% if featured_project %}
+    <div class="banner green" style="background-image: url('{{ featured_project.thumbnail.url }}'); background-size: fit;  background-color: #000; background-repeat: no-repeat; background-position: center;" >
+        <div class="banner__caption">
+          <h1><a href="{% url 'project' featured_project.id %}">{{featured_project.title}}</a></h1><p>{{featured_project.description}}</p>
+        </div>   
+      </div>
+  {% else %}
+    <div class="banner grey">
+        <div class="banner__caption">
+          <h1><a href="/">Content still being added</a></h1><p>Work and Outreach post will be live shortly.</p>
+        </div>
+      </div>
+  {% endif %}
+      <div class="banner orange">
+        <div class="banner__caption">
+          <h1><a href="/">Welcome to Output</a></h1><p>Site is now live! Thank you for visiting!</p>
+        </div>
+      </div>
+      <div class="banner purple">
+        <div class="banner__caption">
+          <h1><a href="{% url 'about' %}">Learn About Us</a></h1><p>Founded in 2024, Output DGO is a graphic design studio that provides a wide variety of digital services.</p>
+        </div>
+      </div>
+</header>

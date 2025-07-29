@@ -1,0 +1,17 @@
+{% load static %}
+<nav class="navbar">
+        <div class="navbar__logo"><a href="/"><img src="{% static 'images/output.png' %}" class="navbar__logo"></img></a></div>
+        <ul id="navbar__menu" class="navbar__menu">
+            <li><a href="{% url 'work' %}">Work</a></li>
+            <li><a href= "{% url 'outreachindex' %}">Outreach</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contactindex' %}">Contact</a></li>
+            </ul>
+        <svg onclick="navMenu()" class="navbar__menuicon" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#FFFFFF"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    </nav>
+<ul id="navbar__mobile" class="navbar__mobile">
+    <li><a href="{% url 'work' %}">Work</a></li>
+    <li><a href= "{% url 'outreachindex' %}">Outreach</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'contactindex' %}">Contact</a></li>
+</ul>

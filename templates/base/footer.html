@@ -1,0 +1,11 @@
+{% load static %}
+<footer class="footer">
+    <div class="footer__logo"><a href="./index.html"><img src="{% static 'images/output.png' %}" class="footer__logo"></img></a></div>
+    <ul id="footer__menu" class="footer__menu">
+      <li><a href="{% url 'work' %}">Work</a></li>
+      <li><a href= "{% url 'outreachindex' %}">Outreach</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contactindex' %}">Contact</a></li>
+    </ul>
+      <div><p>&copy; 2025 Output DGO</p></div>
+  </footer>

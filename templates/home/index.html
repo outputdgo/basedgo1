@@ -1,0 +1,20 @@
+{% load static %}
+<body>
+    <div>
+    {% include 'base/navbar.html' %}
+    {% include 'home/banner.html'%}
+    {% include 'home/outreachlist.html'%}
+    <section class=" cta grid black">
+      <div>
+        <h1 class="">Where Vision Becomes Identity.</h1>
+        <p>Branding, design, and development- crafted to express who you are and where you're headed.
+          <a href="{% url 'about' %}">Learn more about us</a>
+        </p>
+      </div>
+      <div><img src="{% static 'images/1080.jpg' %}"></img></div>
+    </section>
+    {% include 'base/footer.html'%}
+    </div>
+ </body>
+<script src="{% static 'js/index.js' %}"></script>
+ </html>

@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block meta %}
+<meta name="title" content="{{ outreach.title }} - Output DGO">
+<meta name="description" content="{{ outreach.description }}">
+<meta name="keywords" content="Output DGO, outreach, {{ outreach.title }}, design, development, digital platform">
+<meta name="author" content="Output DGO">
+<title>{{ outreach.title }} - BASE@OUTPUT</title>
+{% endblock %}
+{% block content %}
+    <div class= "reachinfo">
+        <h1 class="special">{{outreach.title}}</h1>
+            <p>{{outreach.description}}</p>
+    </div>
+    <hr>
+    <div class="reachbody">  
+        <p class="reachbody__text">{{outreach.body}}</p>
+    </div>
+    {% for image in outreach.outreachimage_set.all %}
+                <img class="project__imgbox" src="{{ image.image.url }}" alt="{{ project.title }}">
+                {% if image.description %}
+                <p class="project__image--description">{{ image.description }}</p>
+                {% endif %}
+        <hr>
+            {% endfor %}
+    <hr>
+    <p>Published on {{outreach.date}}</p>
+{% endblock %}
+
+
+

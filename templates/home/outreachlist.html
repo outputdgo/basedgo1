@@ -1,0 +1,15 @@
+<section class="container black p20">
+    <h2>OUTREACH UPDATES</h2>
+    <hr>
+    {% if outreach_updates %}
+        {% for item in outreach_updates%}
+    <ul class="list">
+       <h3><a href="{% url 'detail' item.id %}">{{item.title}}</a></h3><p>{{item.description}}</p>
+        </ul>
+        <hr> 
+        {% endfor %}
+    {% else %}
+        <h3>No outreach information available.</h3>
+        <hr>
+    {% endif %}
+</section>

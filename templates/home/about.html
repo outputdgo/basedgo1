@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% block meta %}
+<meta name="title" content="About Us - Output DGO">
+<meta name="description" content="Learn about Output DGO, a multidisciplinary design studio specializing in graphic design, web development, and custom creative solutions.">
+<meta name="keywords" content="Output DGO, about us, design studio, graphic design, web development, creative solutions, branding">
+<meta name="author" content="Output DGO">
+<title>ABOUT - OUTPUT DGO</title>
+{% endblock %}
+{% block content %}
+{% load static %}   
+<header class="container center">
+    <img id="aboutimg" src="{% static 'images/about.png' %}"></img>
+</header>
+<section class="p20 m20 about">
+    <h2 class="special">ABOUT US</h2>
+    <p>Output is a multidisciplinary design studio specializing in graphic design, web development, and custom creative solutions. We work with local and global clients — from startups to established brands — to craft distinct identities, build intuitive digital experiences, and produce artwork that resonates.
+        At the heart of our studio is a mission: to set new standards in design and media while showcasing the Midwest as a rising force in the global creative landscape. Every project we take on is guided by purpose, driven by technology, and shaped by artistic vision.
+</p>
+</section>
+
+<!-- <div class="teamember__container">
+        <div class="teamember">
+            <div class="teamember__imgbox"><img src="{% static 'images/marcus.jpg' %}" alt="Marcus Hazley"></img></div>
+            <h3>Marcus Hazley</h3>
+            <p>Co-Founder</p>
+        </div>
+        <div class="teamember">
+            <div class="teamember__imgbox"><img src="{% static 'images/devyn.jpg' %}" alt="Devyn Johnson"></img></div>
+            <h3>Devyn Johnson</h3>
+            <p>Co-Founder</p>
+        </div>
+</div> -->
+{% endblock %}
+</html>

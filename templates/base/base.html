@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    <meta name="title" content="Output DGO">
+    <meta name="description" content="Founded in 2024, Output DGO is a graphic design studio that provides a wide variety of digital services.">
+    <meta name="keywords" content="Output DGO, design, development, digital, projects, outreach, creative, branding, web design, graphic design, digital services">
+    <meta name="author" content="Output DGO">
+    <title>OUTPUT DGO</title>
+    {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu">
+    <link rel="stylesheet" href="https://use.typekit.net/edo4dzv.css"/>
+    <link rel="icon" href="{% static 'images/favi.png' %}" type="image/png">
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+    {% block content %}
+    {% include 'home/banner.html'%}
+    {% include 'home/outreachlist.html'%}
+    <section class=" cta grid black">
+      <div>
+        <h1 class="special">Where Vision Becomes Identity.</h1>
+        <p>Branding, design, and development- crafted to express who you are and where you're headed.</p><br>
+          <a href="{% url 'contactindex' %}" class="reachout">Reach out if you have a question!</a>
+      </div>
+      <div><img src="{% static 'images/home.gif' %}"></img></div>
+    </section>
+    {% endblock %}
+    {% include 'base/footer.html' %}
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+</html>

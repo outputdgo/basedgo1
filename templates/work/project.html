@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block meta %}
+<meta name="title" content="{{ project.title }} - OUTPUT DGO">
+<meta name="description" content="{{ project.description }}">
+<meta name="keywords" content="Output DGO, project, {{ project.title }}, design, development, digital platform">
+<meta name="author" content="Output DGO">
+<title>{{ project.title }} - OUTPUT DGO</title>
+{% endblock %}
+{% block content %} 
+    <div class="projlist__info">
+        <h2 class="projlist__title">{{project.title}}</h2><p class="projlist__description">{{project.description}}</p>
+    </div>
+    <hr>
+    <main class="project center">
+        {% for image in project.projectimage_set.all %}
+            <img class="project__imgbox" src="{{ image.image.url }}" alt="{{ project.title }}">
+            {% if image.description %}
+            <p class="project__image--description">{{ image.description }}</p>
+            {% endif %}
+    <hr>
+        {% endfor %}
+    </main>
+{% endblock %}
