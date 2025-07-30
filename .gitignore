@@ -3,11 +3,15 @@
 *.pot
 *.pyc
 __pycache__/
+settings.py
 db.sqlite3
 db.sqlite3-journal
 
 # Environment variables
 .env
+.env.local
+.env.production
+.env.staging
 
 # Media files (user uploads)
 media/
@@ -18,6 +22,30 @@ staticfiles/
 # Virtual environment
 .venv/
 venv/
+venv*/
+
+# Production files
+gunicorn.sock
+gunicorn.pid
+logs/
+*.access.log
+*.error.log
+gunicorn.conf.py
+
+# SSL certificates (if you add them later)
+*.crt
+*.key
+*.pem
+*.csr
+
+# Nginx temp files
+nginx_temp/
+nginx_basedgo1.conf
+
+# Backup files
+*.sql
+*.dump
+db_backup/
 
 # IDE files
 .vscode/
@@ -32,3 +60,33 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
+
+# Python cache and compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Local configuration overrides
+local_settings.py
