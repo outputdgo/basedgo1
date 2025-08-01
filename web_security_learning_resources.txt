@@ -1,0 +1,132 @@
+WEB SECURITY LEARNING RESOURCES
+=================================
+
+COMPREHENSIVE SECURITY GUIDES
+-----------------------------
+• OWASP (Open Web Application Security Project): https://owasp.org/
+  - OWASP Top 10: https://owasp.org/Top10/
+  - OWASP Testing Guide: https://owasp.org/www-project-web-security-testing-guide/
+  - OWASP Cheat Sheet Series: https://cheatsheetseries.owasp.org/
+
+• MDN Web Security: https://developer.mozilla.org/en-US/docs/Web/Security
+• Google Web Fundamentals Security: https://developers.google.com/web/fundamentals/security
+
+SECURITY HEADERS & CSP
+---------------------
+• Content Security Policy (CSP):
+  - CSP Evaluator: https://csp-evaluator.withgoogle.com/
+  - CSP Reference: https://content-security-policy.com/
+  - Report URI CSP Builder: https://report-uri.com/home/generate
+
+• Security Headers:
+  - SecurityHeaders.com: https://securityheaders.com/
+  - HSTS Preload: https://hstspreload.org/
+  - Permissions Policy: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
+
+DJANGO-SPECIFIC SECURITY
+------------------------
+• Django Security Documentation: https://docs.djangoproject.com/en/stable/topics/security/
+• Django Security Checklist: https://docs.djangoproject.com/en/stable/howto/deployment/checklist/
+• Django Security Middleware: https://docs.djangoproject.com/en/stable/ref/middleware/#security-middleware
+
+VULNERABILITY DATABASES & TOOLS
+-------------------------------
+• CVE Database: https://cve.mitre.org/
+• National Vulnerability Database: https://nvd.nist.gov/
+• Snyk Vulnerability Database: https://snyk.io/vuln/
+• GitHub Advisory Database: https://github.com/advisories
+
+ONLINE SECURITY TESTING TOOLS
+-----------------------------
+• SSL Labs SSL Test: https://www.ssllabs.com/ssltest/
+• Mozilla Observatory: https://observatory.mozilla.org/
+• Security Headers Scanner: https://securityheaders.com/
+• Qualys SSL Labs: https://www.ssllabs.com/ssltest/
+• Hardenize: https://www.hardenize.com/
+
+HANDS-ON LEARNING PLATFORMS
+---------------------------
+• PortSwigger Web Security Academy: https://portswigger.net/web-security
+• OWASP WebGoat: https://owasp.org/www-project-webgoat/
+• OWASP Damn Vulnerable Web Application (DVWA): https://dvwa.co.uk/
+• HackTheBox Academy: https://academy.hackthebox.com/
+• TryHackMe: https://tryhackme.com/
+
+SECURITY COURSES & CERTIFICATIONS
+---------------------------------
+• CISSP (Certified Information Systems Security Professional)
+• CEH (Certified Ethical Hacker)
+• OSCP (Offensive Security Certified Professional)
+• CompTIA Security+
+• (ISC)² Cybersecurity Certification
+
+SECURITY BOOKS
+--------------
+• "The Web Application Hacker's Handbook" by Dafydd Stuttard
+• "Tangled Web: A Guide to Securing Modern Web Applications" by Michal Zalewski
+• "The Hacker Playbook" series by Peter Kim
+• "Web Security for Developers" by Malcolm McDonald
+
+SECURITY CONFERENCES & COMMUNITIES
+----------------------------------
+• DEF CON: https://defcon.org/
+• Black Hat: https://www.blackhat.com/
+• BSides Events: http://www.securitybsides.com/
+• OWASP Local Chapters: https://owasp.org/chapters/
+• Reddit r/netsec: https://reddit.com/r/netsec
+
+BROWSER SECURITY
+---------------
+• Chrome Security Team Blog: https://security.googleblog.com/
+• Firefox Security Blog: https://blog.mozilla.org/security/
+• WebKit Security: https://webkit.org/security/
+
+PENETRATION TESTING TOOLS
+-------------------------
+• Burp Suite: https://portswigger.net/burp
+• OWASP ZAP: https://www.zaproxy.org/
+• Nmap: https://nmap.org/
+• Metasploit: https://www.metasploit.com/
+• Wireshark: https://www.wireshark.org/
+
+API SECURITY
+------------
+• OWASP API Security Top 10: https://owasp.org/www-project-api-security/
+• Postman API Security: https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-apis/
+• REST Security Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+
+CLOUD SECURITY
+--------------
+• AWS Security Best Practices: https://aws.amazon.com/security/
+• Google Cloud Security: https://cloud.google.com/security
+• Azure Security Documentation: https://docs.microsoft.com/en-us/azure/security/
+
+NEWS & UPDATES
+--------------
+• Krebs on Security: https://krebsonsecurity.com/
+• The Hacker News: https://thehackernews.com/
+• Threatpost: https://threatpost.com/
+• SANS Internet Storm Center: https://isc.sans.edu/
+• US-CERT Alerts: https://www.cisa.gov/uscert/ncas/alerts
+
+SECURITY PODCASTS
+----------------
+• Security Now: https://twit.tv/shows/security-now
+• Darknet Diaries: https://darknetdiaries.com/
+• The CyberWire: https://thecyberwire.com/
+• Risky Business: https://risky.biz/
+
+LEGAL & COMPLIANCE
+-----------------
+• GDPR Information: https://gdpr.eu/
+• CCPA Information: https://oag.ca.gov/privacy/ccpa
+• NIST Cybersecurity Framework: https://www.nist.gov/cyberframework
+• ISO 27001: https://www.iso.org/isoiec-27001-information-security.html
+
+INCIDENT RESPONSE
+----------------
+• SANS Incident Response: https://www.sans.org/incident-response/
+• NIST Computer Security Incident Handling Guide: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
+• CERT Incident Response: https://www.sei.cmu.edu/education-outreach/courses/course.cfm?courseCode=P115
+
+Remember: Security is an ongoing process, not a one-time setup. Stay updated with the latest threats and best practices!
