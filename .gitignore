@@ -52,6 +52,7 @@ db_backup/
 .idea/
 *.swp
 *.swo
+gunicorn_nginx_setup_guide.txt
 
 # OS files
 .DS_Store

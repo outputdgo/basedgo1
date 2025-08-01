@@ -9,7 +9,7 @@ def index(request):
         message = request.POST.get("message")
         ContactSubmission.objects.create(name=name, email=email, message=message)
         return redirect('success')   
-    return render(request, 'templates/contact/contact.html')
+    return render(request, 'contact/contact.html')
 
 def success(request):
-    return render(request, 'templates/contact/sucess.html')
+    return render(request, 'contact/success.html')
