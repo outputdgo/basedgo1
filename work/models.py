@@ -1,4 +1,5 @@
 import random
+import re
 from django.db import models
 
 
@@ -37,10 +38,29 @@ class Project(Content, RandomSlugMixin):
     discipline = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to='project/images')
     client = models.CharField(max_length=100)
+    coverimage = models.ImageField(upload_to='project/images', blank=True, null=True)
     
     
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='project/images')
     description = models.CharField(max_length=100, blank=True, null=True)
+
+class ProjectEmbeddedVideo(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    video_url = models.URLField()
+    description = models.CharField(max_length=100, blank=True, null=True)
     
+    def save(self, *args, **kwargs):
+        # Convert YouTube watch URLs to embed URLs
+        if 'youtube.com/watch?v=' in self.video_url:
+            video_id = re.search(r'v=([^&]*)', self.video_url)
+            if video_id:
+                self.video_url = f'https://www.youtube.com/embed/{video_id.group(1)}'
+        elif 'youtu.be/' in self.video_url:
+            video_id = self.video_url.split('youtu.be/')[-1].split('?')[0]
+            self.video_url = f'https://www.youtube.com/embed/{video_id}'
+        super().save(*args, **kwargs)
+    
+    def __str__(self):
+        return f"Video for {self.project.title}"

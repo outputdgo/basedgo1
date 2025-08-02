@@ -13,4 +13,5 @@ def index(request):
 def project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     project_images = project.projectimage_set.all()
+    project_videos = project.projectembeddedvideo_set.all()
     return render(request, "templates/work/project.html", {"project": project})

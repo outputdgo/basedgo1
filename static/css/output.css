@@ -361,6 +361,28 @@ h3 {
   min-width: 350px;
   margin: 10px;
 }
+.project__video {
+  position: relative;
+  width: 50%;
+  min-width: 350px;
+  margin: 10px;
+  padding-bottom: 28.125%; /* 16:9 aspect ratio (9/16 * 50%) */
+  height: 0;
+  overflow: hidden;
+}
+.project__video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.project__video--description,
+.project__image--description {
+  margin: 10px 0;
+  font-style: italic;
+  color: #ccc;
+}
 .project h3 {
   font-size: 2rem;
 }
