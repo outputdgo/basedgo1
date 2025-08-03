@@ -12,6 +12,22 @@
     </div>
     <hr>
     <main class="project center">
+        {% for video in project.projectembeddedvideo_set.all %}
+            <div class="project__video">
+                <iframe 
+                    src="{{ video.video_url }}" 
+                    width="560" 
+                    height="315" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+                {% if video.description %}
+                <p class="project__video--description">{{ video.description }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
         {% for image in project.projectimage_set.all %}
             <img class="project__imgbox" src="{{ image.image.url }}" alt="{{ project.title }}">
             {% if image.description %}
