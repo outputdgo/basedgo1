@@ -46,10 +46,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Add Cloudflare middleware in production - TESTING SIMPLIFIED SECURITY
+# Add Cloudflare middleware in production - RESTORED FROM PREVIOUS COMMIT
 if not DEBUG:
     MIDDLEWARE.insert(0, 'cloudflare_middleware.CloudflareMiddleware')
-    MIDDLEWARE.insert(1, 'security_middleware.SecurityHeadersMiddleware')  # Simplified version
+    MIDDLEWARE.insert(1, 'security_middleware.SecurityHeadersMiddleware')
 
 ROOT_URLCONF = 'base.urls'
 
