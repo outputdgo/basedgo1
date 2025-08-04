@@ -36,6 +36,22 @@ h1 {
   .resp {
     flex-direction: column;
   }
+  .banner h1 {
+    font-size: 1.5rem; /* Smaller banner title on mobile */
+    margin: 0px 0px 0px 20px; /* Reduced left margin */
+  }
+  .banner p {
+    font-size: 1rem; /* Smaller banner subtitle on mobile */
+    margin: 0px 0px 0px 20px; /* Reduced left margin */
+  }
+  .banner:hover h1 {
+    margin: 120px 0px 0px 20px; /* Adjusted for smaller mobile height */
+    font-size: 1.5rem; /* Maintain consistent size on hover */
+  }
+  .banner:hover p {
+    margin: 0px 0px 0px 20px; /* Consistent margin on hover */
+    font-size: 1rem; /* Maintain consistent size on hover */
+  }
 }
 
 .grid {
@@ -376,6 +392,23 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Mobile responsiveness for project videos */
+@media screen and (max-width: 768px) {
+  .project__video {
+    width: 100%;
+    min-width: unset;
+    max-width: calc(100vw - 40px); /* Account for margins */
+    margin: 10px 20px;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio for full width */
+  }
+  .project__imgbox {
+    width: 100%;
+    min-width: unset;
+    max-width: calc(100vw - 40px);
+    margin: 10px 20px;
+  }
 }
 .project__video--description,
 .project__image--description {

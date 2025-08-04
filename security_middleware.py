@@ -15,13 +15,13 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
         # Only add headers in production (when DEBUG=False)
         if not settings.DEBUG:
-            # Basic security headers
+            # Basic security headers (modified for iframe compatibility)
             response['X-Content-Type-Options'] = 'nosniff'
-            response['X-Frame-Options'] = 'DENY'
+            response['X-Frame-Options'] = 'SAMEORIGIN'  # Allow same-origin frames for embeds
             response['X-XSS-Protection'] = '1; mode=block'
             response['Referrer-Policy'] = 'same-origin'
             
-            # Simple, safe CSP that won't cause hanging issues
+            # CSP that allows video embeds from trusted sources
             csp_policy = (
                 "default-src 'self'; "
                 "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; "
@@ -29,7 +29,7 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
                 "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://use.typekit.net https://p.typekit.net; "
                 "img-src 'self' data: https: blob:; "
                 "connect-src 'self'; "
-                "frame-src 'none'; "
+                "frame-src 'self' https://www.youtube.com https://youtube.com https://player.vimeo.com https://vimeo.com; "
                 "object-src 'none'; "
                 "base-uri 'self'; "
                 "form-action 'self'"
