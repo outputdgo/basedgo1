@@ -13,6 +13,7 @@ db.sqlite3-journal
 .env.production
 .env.staging
 cookies.txt
+*.sh
 
 # Media files (user uploads)
 media/
