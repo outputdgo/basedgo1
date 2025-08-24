@@ -213,6 +213,15 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
 
+# Admin email notifications (for error reporting)
+ADMINS = [
+    ('Admin', config('ADMIN_EMAIL', default='admin@localhost')),
+]
+MANAGERS = ADMINS
+
+# Email subject prefix for admin notifications
+EMAIL_SUBJECT_PREFIX = '[outputdgo.com] '
+
 # Logging configuration - Enhanced for security
 LOGGING = {
     'version': 1,
