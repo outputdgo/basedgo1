@@ -1,9 +1,10 @@
 from django.db import models
 from work.models import Content, RandomSlugMixin
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class OutreachPost(Content, RandomSlugMixin):
-    body=models.TextField()
+    body = RichTextField()
 
 
 class OutreachImage(models.Model):
