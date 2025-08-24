@@ -13,7 +13,28 @@ db.sqlite3-journal
 .env.production
 .env.staging
 cookies.txt
+
+# Security and deployment scripts (sensitive)
 *.sh
+security-*.sh
+ssl-*.sh
+backup.sh
+deploy.sh
+quick-deploy.sh
+restart-server.sh
+enable-security.sh
+
+# Debug and test files
+debug_admin.py
+cf_test.py
+direct_admin_check.py
+session_debug_view.py
+webhook_server.py
+
+# Configuration files with sensitive data
+nginx_config_fixed.conf
+nginx_basedgo1.conf
+SECURITY_SETTINGS.py
 
 # Media files (user uploads)
 media/
@@ -32,6 +53,10 @@ gunicorn.pid
 logs/
 *.access.log
 *.error.log
+security.log
+django.log
+
+# Generated config files
 gunicorn.conf.py
 
 # SSL certificates (if you add them later)
@@ -48,17 +73,24 @@ nginx_basedgo1.conf
 *.sql
 *.dump
 db_backup/
+backups/
 
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
-gunicorn_nginx_setup_guide.txt
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary files
+*~
+*.tmp
+*.temp
+nginx_temp*
+gunicorn_nginx_setup_guide.txt
 
 # Backup files
 *.bak
