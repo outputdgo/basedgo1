@@ -13,7 +13,7 @@
     </div>
     <hr>
     <div class="reachbody">  
-        <p class="reachbody__text">{{outreach.body}}</p>
+        <div class="reachbody__text">{{outreach.body|safe}}</div>
     </div>
     {% for image in outreach.outreachimage_set.all %}
                 <img class="project__imgbox" src="{{ image.image.url }}" alt="{{ project.title }}">

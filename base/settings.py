@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'work.apps.WorkConfig',
     'outreach.apps.OutreachConfig',
     'contact.apps.ContactConfig',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -227,3 +229,30 @@ LOGGING = {
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CKEditor Configuration
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['TextColor', 'BGColor'],
+            ['Format', 'Styles'],
+            ['NumberedList', 'BulletedList', 'Outdent', 'Indent'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+        ],
+        'format_tags': 'p;h1;h2;h3;h4;h5;h6',
+        'height': 400,
+        'width': '100%',
+        'removePlugins': 'stylesheetparser',
+        'extraPlugins': 'colorbutton,colordialog',
+    },
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+}
