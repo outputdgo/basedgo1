@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path(config('ADMIN_URL'), admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('home.urls')),
     path('outreach/', include('outreach.urls')),
     path("outreach/<int:outreachpost_id>/", include('outreach.urls')),
