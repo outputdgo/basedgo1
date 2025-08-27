@@ -1,0 +1,176 @@
+# Git Workflow: Develop → Production
+# Updated: August 24, 2025
+
+## 🚀 Standard Workflow for Moving Changes to Production
+
+### STEP 1: Work on Develop Branch
+```bash
+# Make sure you're on develop branch
+git checkout develop
+
+# Make your changes to files...
+# Test your changes locally...
+```
+
+### STEP 2: Commit Changes on Develop
+```bash
+# Check what files have changed
+git status
+
+# Add all changes to staging
+git add .
+
+# Commit with descriptive message
+git commit -m "Descriptive commit message
+
+- List major changes
+- Explain new features
+- Note any important updates"
+
+# Push develop branch to remote
+git push origin develop
+```
+
+### STEP 3: Switch to Production Branch
+```bash
+# Switch to production branch
+git checkout production
+
+# Pull latest production changes (important!)
+git pull origin production
+```
+
+### STEP 4: Merge Develop into Production
+```bash
+# Merge develop branch into production
+git merge develop
+
+# If there are conflicts:
+# 1. Git will pause and show conflict files
+# 2. Edit conflict files to resolve issues
+# 3. Add resolved files: git add <filename>
+# 4. Continue with: git commit
+
+# If no conflicts, Git auto-commits the merge
+```
+
+### STEP 5: Push Production to Remote
+```bash
+# Push updated production branch
+git push origin production
+```
+
+### STEP 6: Deploy to Web Server (IMPORTANT!)
+```bash
+# SSH into your web server
+ssh your-username@your-server-ip
+
+# Navigate to your project directory
+cd /path/to/your/django/project
+
+# Pull the latest production changes
+git pull origin production
+
+# Apply any new database migrations
+python manage.py migrate
+
+# Collect static files (if needed)
+python manage.py collectstatic --noinput
+
+# Restart your web server
+sudo systemctl restart your-django-service
+# OR: sudo systemctl restart gunicorn
+# OR: however you restart your Django app
+
+# Exit the server
+exit
+```
+
+### STEP 7: Return to Develop (Optional)
+```bash
+# Switch back to develop for future work
+git checkout develop
+```
+
+## ⚠️ IMPORTANT REMINDER
+
+**Your changes are NOT live until you deploy to your web server!**
+
+- Local changes = Only visible on your development machine
+- GitHub changes = Code is saved but not deployed
+- **Web server deployment = Changes go LIVE for users**
+
+Always remember to complete Step 6 (Deploy to Web Server) to see your changes on the actual website!
+
+## 🆘 Troubleshooting Common Issues
+
+### If Merge Conflicts Occur:
+1. Git will show which files have conflicts
+2. Open conflicted files and look for:
+   ```
+   <<<<<<< HEAD
+   (your production code)
+   =======
+   (your develop code)
+   >>>>>>> develop
+   ```
+3. Edit to keep the version you want
+4. Remove the conflict markers (<<<<<<, =======, >>>>>>>)
+5. Add the resolved file: `git add <filename>`
+6. Complete merge: `git commit`
+
+### If Merge is Interrupted:
+```bash
+# Check status
+git status
+
+# If merge is in progress, complete it:
+git commit
+
+# If you want to abort the merge:
+git merge --abort
+```
+
+### View Git History:
+```bash
+# See recent commits
+git log --oneline -10
+
+# See branch differences
+git log production..develop --oneline
+```
+
+## ✅ Best Practices
+
+1. **Always test changes on develop first**
+2. **Write descriptive commit messages**
+3. **Pull production before merging** (prevents conflicts)
+4. **Never work directly on production branch**
+5. **Use develop branch for all development work**
+6. **Backup important work before complex merges**
+
+## 🔄 Quick Reference Commands
+
+```bash
+# Check current branch
+git branch
+
+# See file changes
+git status
+
+# View commit history
+git log --oneline -5
+
+# See differences between branches
+git diff production develop
+
+# Create new branch (if needed)
+git checkout -b feature-branch-name
+```
+
+## 📝 Notes
+
+- Always work on 'develop' branch for new features
+- Only merge to 'production' when features are complete and tested
+- Use descriptive commit messages for better tracking
+- If unsure about conflicts, ask for help before proceeding
