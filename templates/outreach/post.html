@@ -39,24 +39,10 @@
                 {% if image.caption %}
                 <p style="margin-top: 1rem; font-style: italic; color: #aaa; font-size: 0.95rem;">{{ image.caption }}</p>
                 {% endif %}
-            </div>
-            {% if not forloop.last %}
-            <div style="text-align: center; margin: 3rem 0;">
-                <div style="width: 50px; height: 1px; background: #444; margin: 0 auto;"></div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    {% endif %}
-    
-    <!-- Post Footer -->
-    <div style="text-align: center; margin: 4rem auto 2rem; max-width: 800px; padding: 2rem 1rem; border-top: 1px solid #333;">
-        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #333, #555); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 1.5rem;">✦</span>
-        </div>
-        <p style="color: #888; font-size: 0.9rem;">Thank you for reading</p>
-        <p style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">Published on {{outreach.date|date:"F j, Y"}}</p>
-    </div>
+        <hr>
+            {% endfor %}
+    <hr>
+    <p class="reachfooter">Published on {{outreach.date}}</p>
 {% endblock %}
 
 

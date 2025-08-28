@@ -1,6 +1,7 @@
 $primary-color: #B5FF00;
 $secondary-color: #FFA500;
 $tertiary-color: #8A2BE2;
+$outreach-text-color: #cccccc; // Light gray for outreach text - change this to your preferred color
 
 *{
     margin: 0;
@@ -8,7 +9,7 @@ $tertiary-color: #8A2BE2;
     padding: 0;
     font-family: "bio-sans", sans-serif;
     box-sizing: border-box;
-    color: white;
+    color: white; // Keep universal white for site
     list-style-type: none;
     text-decoration: none;
     font-size: 100%;
@@ -21,6 +22,7 @@ html{
 h1{
     font-size: 3rem;
     margin: 0px;
+    color: white;
 }
 
 
@@ -240,14 +242,29 @@ h2 {
   h1 {
     font-size: 3.75rem;
     margin-bottom: 20px;
+  
+  }
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
   }
    @media screen and (max-width: 768px) {
     h1 {
       font-size: 3rem;
     }
-
-
+  }
 }
+
+.reachout {
+  color: $primary-color;
+  font-size: 2.25rem;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+  }
 }  
   
 
@@ -395,19 +412,84 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  color: white;
 }
+.reachfooter {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
 .reachbody {
   display: flex;
   align-content: center;
-  margin-right: 10%;
-  padding: 10px;
+  justify-content: center;
+  padding: 30px;
+  margin: 10px;
 
   &__text {
-    width: 100%;
+    width: 60%;
     font-size: 1.2rem;
-  }
+    line-height: 1.6;
 
-  
+    // CKEditor Content Styling
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0.0em 0 0.0em 0;
+      color: $outreach-text-color;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    p {
+      margin: .5em 0;
+      color: $outreach-text-color;
+    }
+
+    ul, ol {
+      margin: 1em 0;
+      padding-left: 2em;
+      color: $outreach-text-color;
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    li {
+      margin: 0.5em 0;
+      list-style-type: inherit;
+      color: $outreach-text-color; // Explicitly set color for list items
+    }
+
+    strong {
+      font-weight: bold;
+      color: $outreach-text-color;
+    }
+
+    em {
+      font-style: italic;
+      color: $outreach-text-color;
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+      line-height: 1.5;
+    }
+  }
 }
 .about {
   display: flex;
