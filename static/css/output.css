@@ -18,6 +18,7 @@ html {
 h1 {
   font-size: 3rem;
   margin: 0px;
+  color: white;
 }
 
 .container {
@@ -95,10 +96,6 @@ h1 {
   background-color: black;
 }
 
-.grey {
-  background-color: #8e8e8e;
-}
-
 .underline {
   text-decoration: underline;
 }
@@ -108,10 +105,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
 }
 
 .navbar {
@@ -176,7 +170,6 @@ h3 {
 }
 .banner__image {
   width: 100%;
-  object-fit: fill;
 }
 .banner__caption {
   position: absolute;
@@ -246,7 +239,6 @@ h3 {
   font-size: 3.75rem;
   margin-bottom: 20px;
 }
-
 .cta p {
   font-size: 1.25rem;
   margin-bottom: 20px;
@@ -255,6 +247,17 @@ h3 {
   .cta h1 {
     font-size: 3rem;
   }
+}
+
+.reachout {
+  color: #B5FF00;
+  font-size: 2.25rem;
+  text-decoration: none;
+}
+.reachout:hover {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .footer {
@@ -424,17 +427,80 @@ h3 {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  color: white;
+}
+
+.reachfooter {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #ccc;
 }
 
 .reachbody {
   display: flex;
   align-content: center;
-  margin-right: 10%;
-  padding: 10px;
+  justify-content: center;
+  padding: 30px;
+  margin: 10px;
 }
 .reachbody__text {
-  width: 100%;
+  width: 60%;
   font-size: 1.2rem;
+  line-height: 1.6;
+}
+.reachbody__text h1, .reachbody__text h2, .reachbody__text h3, .reachbody__text h4, .reachbody__text h5, .reachbody__text h6 {
+  margin: 0em 0 0em 0;
+  color: #cccccc;
+}
+.reachbody__text h1 {
+  font-size: 2.5rem;
+}
+.reachbody__text h2 {
+  font-size: 2rem;
+}
+.reachbody__text h3 {
+  font-size: 1.5rem;
+}
+.reachbody__text p {
+  margin: 0.5em 0;
+  color: #cccccc;
+}
+.reachbody__text ul, .reachbody__text ol {
+  margin: 1em 0;
+  padding-left: 2em;
+  color: #cccccc;
+  list-style-type: disc;
+}
+.reachbody__text ol {
+  list-style-type: decimal;
+}
+.reachbody__text li {
+  margin: 0.5em 0;
+  list-style-type: inherit;
+  color: #cccccc;
+}
+.reachbody__text strong {
+  font-weight: bold;
+  color: #cccccc;
+}
+.reachbody__text em {
+  font-style: italic;
+  color: #cccccc;
+}
+.reachbody__text a {
+  color: #B5FF00;
+  text-decoration: underline;
+}
+.reachbody__text a:hover {
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .reachbody__text {
+    width: 90%;
+    line-height: 1.5;
+  }
 }
 
 .about {
@@ -536,15 +602,6 @@ h3 {
 .pagination span {
   color: #B5FF00;
   text-decoration: none;
-}
-.reachout {
-  color: #B5FF00;
-  font-size: 2.25rem;
-}
-.reachout:hover {
-  color: white;
-  text-decoration: underline;
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=output.css.map */
