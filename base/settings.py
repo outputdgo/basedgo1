@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 # Middleware - add Cloudflare middleware if needed
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'utils.security_middleware.MediaSecurityMiddleware',  # Add media security
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -284,6 +285,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CKEditor Configuration
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
+CKEDITOR_RESTRICT_BY_USER = True  # Only allow staff to upload
+CKEDITOR_BROWSE_SHOW_DIRS = False  # Disable directory browsing
+CKEDITOR_IMAGE_BACKEND = 'pillow'  # Use Pillow for image validation
+
+# File upload security settings
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
+
+# Additional security: file type restrictions
+CKEDITOR_FILENAME_GENERATOR = 'utils.file_validators.sanitize_filename'
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -295,6 +308,7 @@ CKEDITOR_CONFIGS = {
             ['NumberedList', 'BulletedList', 'Outdent', 'Indent'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
+            ['Image'],  # Standard image button with upload capability
             ['RemoveFormat', 'Source'],
         ],
         'format_tags': 'p;h1;h2;h3;h4;h5;h6',
@@ -302,6 +316,9 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
         'removePlugins': 'stylesheetparser',
         'extraPlugins': 'colorbutton,colordialog',
+        # Standard upload configuration
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserBrowseUrl': '/ckeditor/browse/',
     },
     'awesome_ckeditor': {
         'toolbar': 'Basic',

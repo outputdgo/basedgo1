@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path(config('ADMIN_URL'), admin.site.urls),
+    # Use standard ckeditor_uploader with our security middleware
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('home.urls')),
     path('outreach/', include('outreach.urls')),

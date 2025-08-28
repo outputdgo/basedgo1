@@ -1,10 +1,11 @@
 from django.db import models
 from work.models import Content, RandomSlugMixin
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+from utils.file_validators import validate_image_upload
 # Create your models here.
 
 class OutreachPost(Content, RandomSlugMixin):
-    body = RichTextField()
+    body = RichTextUploadingField()
 
 
 class OutreachImage(models.Model):

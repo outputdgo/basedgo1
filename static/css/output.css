@@ -423,18 +423,212 @@ h3 {
 .reachinfo {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reachinfo h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.reachinfo p {
+  font-size: 1.3rem;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .reachbody {
   display: flex;
-  align-content: center;
-  margin-right: 10%;
-  padding: 10px;
+  padding: 60px !important;
+  margin: 0 auto;
+  max-width: 400px; /* Narrower for better column appearance */
+  text-align: left; /* Ensure text is left-aligned within the centered column */
 }
+
 .reachbody__text {
+  width: 10%;
+  line-height: 1.8; /* Better line spacing */
+  margin: 0 auto;
+}
+
+/* Typography hierarchy for CKEditor content */
+.reachbody__text h1,
+.reachbody__text h2,
+.reachbody__text h3,
+.reachbody__text h4,
+.reachbody__text h5,
+.reachbody__text h6 {
+  margin: 2rem 0 1rem 0;
+  line-height: 1.3;
+  font-weight: 600;
+  text-align: center;
+}
+
+.reachbody__text h1 { font-size: 2.5rem; }
+.reachbody__text h2 { font-size: 2rem; }
+.reachbody__text h3 { font-size: 1.5rem; }
+.reachbody__text h4 { font-size: 1.3rem; }
+.reachbody__text h5 { font-size: 1.1rem; }
+.reachbody__text h6 { font-size: 1rem; }
+
+.reachbody__text p {
+  margin: 1.2rem 0;
+  text-align: center;
+}
+
+.reachbody__text ul,
+.reachbody__text ol {
+  margin: 1rem auto;
+  padding-left: 1rem;
+  display: inline-block;
+  text-align: left;
+}
+
+.reachbody__text li {
+  margin: 0.5rem 0;
+  list-style-type: disc;
+}
+
+.reachbody__text ol li {
+  list-style-type: decimal;
+}
+
+/* Center the list container */
+.reachbody__text {
+  text-align: left; /* Left-align text within the centered column */
+}
+
+.reachbody__text ul,
+.reachbody__text ol {
+  text-align: left;
+  display: inline-block;
+}
+
+.reachbody__text blockquote {
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid #666;
+  background-color: rgba(255, 255, 255, 0.02);
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  max-width: 600px;
+}
+
+.reachbody__text img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.reachbody__text a {
+  color: #4A9EFF;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.reachbody__text a:hover {
+  color: #7BB3FF;
+}
+
+.reachbody__text code {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.reachbody__text pre {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.reachbody__text pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  .reachinfo {
+    padding: 1.5rem 1rem;
+  }
+  
+  .reachinfo h1 {
+    font-size: 2.2rem;
+  }
+  
+  .reachinfo p {
+    font-size: 1.1rem;
+  }
+  
+  .reachbody {
+    padding: 30px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left; /* Ensure text stays left-aligned within centered column */
+  }
+  
+  .reachbody__text {
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .reachbody__text h1 { font-size: 2rem; }
+  .reachbody__text h2 { font-size: 1.7rem; }
+  .reachbody__text h3 { font-size: 1.4rem; }
+  .reachbody__text h4 { font-size: 1.2rem; }
+  
+  .reachbody__text blockquote {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* Additional styling for better readability */
+.reachbody__text strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.reachbody__text em {
+  font-style: italic;
+  color: #ddd;
+}
+
+.reachbody__text table {
   width: 100%;
-  font-size: 1.2rem;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.reachbody__text th,
+.reachbody__text td {
+  padding: 0.8rem;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+.reachbody__text th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
 }
 
 .about {
