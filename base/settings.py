@@ -81,13 +81,16 @@ DATABASES = {
     }
 }
 
-# Password validation
+# Password validation - Enhanced for security
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12 if not DEBUG else 8,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -99,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'  # US Central Time (handles CDT/CST automatically)
 USE_I18N = True
 USE_TZ = True
 
@@ -127,6 +130,10 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=False, cast=bool)
     CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
     
+    # Enhanced session security
+    SESSION_COOKIE_AGE = config('SESSION_COOKIE_AGE', default=3600, cast=int)  # 1 hour
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = config('SESSION_EXPIRE_AT_BROWSER_CLOSE', default=True, cast=bool)
+    
     # Session and cookie settings for Cloudflare compatibility - SIMPLIFIED
     SESSION_COOKIE_DOMAIN = config('SESSION_COOKIE_DOMAIN', default=None)
     CSRF_COOKIE_DOMAIN = config('CSRF_COOKIE_DOMAIN', default=None)
@@ -134,8 +141,6 @@ if not DEBUG:
     CSRF_COOKIE_SAMESITE = config('CSRF_COOKIE_SAMESITE', default='Lax')
     SESSION_COOKIE_HTTPONLY = True
     CSRF_COOKIE_HTTPONLY = False  # Must be False for CSRF to work with AJAX
-    SESSION_COOKIE_AGE = config('SESSION_COOKIE_AGE', default=86400, cast=int)  # 24 hours
-    SESSION_EXPIRE_AT_BROWSER_CLOSE = config('SESSION_EXPIRE_AT_BROWSER_CLOSE', default=False, cast=bool)
     # SESSION_SAVE_EVERY_REQUEST = config('SESSION_SAVE_EVERY_REQUEST', default=False, cast=bool)  # Commented out
     
     # CSRF settings for better compatibility
@@ -145,6 +150,11 @@ if not DEBUG:
     # Additional security headers
     SECURE_REFERRER_POLICY = 'same-origin'
     SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin'
+    
+    # File upload security
+    FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+    DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+    FILE_UPLOAD_PERMISSIONS = 0o644
     
     # Content Security Policy (CSP)
     CSP_DEFAULT_SRC = config('CSP_DEFAULT_SRC', default="'self'")
@@ -189,8 +199,8 @@ if not DEBUG:
         'xr-spatial-tracking': '()',
     }
     
-    # Cloudflare specific settings
-    SECURE_PROXY_SSL_HEADER = ('HTTP_CF_VISITOR', '{"scheme":"https"}')
+    # Cloudflare specific settings - Fixed for redirect loop
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     USE_X_FORWARDED_HOST = True
     USE_X_FORWARDED_PORT = True
 
@@ -203,19 +213,50 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
 
-# Logging configuration
+# Admin email notifications (for error reporting)
+ADMINS = [
+    ('Admin', config('ADMIN_EMAIL', default='admin@localhost')),
+]
+MANAGERS = ADMINS
+
+# Email subject prefix for admin notifications
+EMAIL_SUBJECT_PREFIX = '[outputdgo.com] '
+
+# Logging configuration - Enhanced for security
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'security': {
+            'format': 'SECURITY {asctime} {levelname} {module} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'file': {
             'level': config('LOG_LEVEL', default='INFO'),
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'django.log',
+            'maxBytes': 1024*1024*15,  # 15MB
+            'backupCount': 10,
+            'formatter': 'verbose',
+        },
+        'security_file': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'security.log',
+            'maxBytes': 1024*1024*5,  # 5MB
+            'backupCount': 5,
+            'formatter': 'security',
         },
         'console': {
             'level': 'INFO' if DEBUG else 'ERROR',
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
@@ -223,6 +264,16 @@ LOGGING = {
             'handlers': ['console'] if DEBUG else ['file', 'console'],
             'level': config('LOG_LEVEL', default='INFO'),
             'propagate': True,
+        },
+        'django.security': {
+            'handlers': ['security_file'] if not DEBUG else ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['security_file'] if not DEBUG else ['console'],
+            'level': 'WARNING',
+            'propagate': False,
         },
     },
 }

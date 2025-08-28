@@ -18,7 +18,37 @@
         <input type="email" id="email" name="email" required>
         <label for="message">Message:</label>
         <textarea id="message" name="message" required></textarea>
+        
+        <!-- Honeypot field - hidden from users, visible to bots -->
+        <input type="text" name="website" id="website" style="display: none;" tabindex="-1" autocomplete="off">
+        
+        <!-- Time-based protection - hidden timestamp -->
+        <input type="hidden" name="form_timestamp" id="form_timestamp" value="">
+        
         <button type="submit">Submit</button>
     </form>
+    
+    <script>
+    // Set timestamp when page loads (anti-bot time check)
+    document.getElementById('form_timestamp').value = Date.now();
+    
+    // Additional bot detection - disable form for first 3 seconds
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const form = document.querySelector('form');
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Loading...';
+    
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+    }, 3000);
+    
+    // Prevent rapid form submissions
+    form.addEventListener('submit', function(e) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+    });
+    </script>
 </section>
 {% endblock %}
