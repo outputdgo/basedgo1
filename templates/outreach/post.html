@@ -39,8 +39,11 @@
                 {% if image.caption %}
                 <p style="margin-top: 1rem; font-style: italic; color: #aaa; font-size: 0.95rem;">{{ image.caption }}</p>
                 {% endif %}
-        <hr>
-            {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
     <hr>
     <p class="reachfooter">Published on {{outreach.date}}</p>
 {% endblock %}
