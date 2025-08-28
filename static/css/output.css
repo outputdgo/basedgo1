@@ -445,151 +445,62 @@ h2 {
   padding: 30px;
   margin: 10px;
 }
-
-.reachbody__text ul,
-.reachbody__text ol {
-  margin: 1rem auto;
-  padding-left: 1rem;
-  display: inline-block;
-  text-align: left;
+.reachbody__text {
+  width: 60%;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
-
-.reachbody__text li {
-  margin: 0.5rem 0;
+.reachbody__text h1, .reachbody__text h2, .reachbody__text h3, .reachbody__text h4, .reachbody__text h5, .reachbody__text h6 {
+  margin: 0em 0 0em 0;
+  color: #cccccc;
+}
+.reachbody__text h1 {
+  font-size: 2.5rem;
+}
+.reachbody__text h2 {
+  font-size: 2rem;
+}
+.reachbody__text h3 {
+  font-size: 1.5rem;
+}
+.reachbody__text p {
+  margin: 0.5em 0;
+  color: #cccccc;
+}
+.reachbody__text ul, .reachbody__text ol {
+  margin: 1em 0;
+  padding-left: 2em;
+  color: #cccccc;
   list-style-type: disc;
 }
-
-.reachbody__text ol li {
+.reachbody__text ol {
   list-style-type: decimal;
 }
-
-/* Center the list container */
-.reachbody__text {
-  text-align: left; /* Left-align text within the centered column */
+.reachbody__text li {
+  margin: 0.5em 0;
+  list-style-type: inherit;
+  color: #cccccc;
 }
-
-.reachbody__text ul,
-.reachbody__text ol {
-  text-align: left;
-  display: inline-block;
-}
-
-.reachbody__text blockquote {
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  border-left: 4px solid #666;
-  background-color: rgba(255, 255, 255, 0.02);
-  font-style: italic;
-  border-radius: 0 8px 8px 0;
-  text-align: center;
-  max-width: 600px;
-}
-
-.reachbody__text img {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem auto;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-}
-
-.reachbody__text a {
-  color: #4A9EFF;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.reachbody__text a:hover {
-  color: #7BB3FF;
-}
-
-.reachbody__text code {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9em;
-}
-
-.reachbody__text pre {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-.reachbody__text pre code {
-  background: none;
-  padding: 0;
-}
-
-/* Mobile responsive adjustments */
-@media screen and (max-width: 768px) {
-  .reachinfo {
-    padding: 1.5rem 1rem;
-  }
-  
-  .reachinfo h1 {
-    font-size: 2.2rem;
-  }
-  
-  .reachinfo p {
-    font-size: 1.1rem;
-  }
-  
-  .reachbody {
-    padding: 30px 20px;
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: left; /* Ensure text stays left-aligned within centered column */
-  }
-  
-  .reachbody__text {
-    margin: 0 auto;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-  
-  .reachbody__text h1 { font-size: 2rem; }
-  .reachbody__text h2 { font-size: 1.7rem; }
-  .reachbody__text h3 { font-size: 1.4rem; }
-  .reachbody__text h4 { font-size: 1.2rem; }
-  
-  .reachbody__text blockquote {
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-  }
-}
-
-/* Additional styling for better readability */
 .reachbody__text strong {
-  font-weight: 600;
-  color: #fff;
+  font-weight: bold;
+  color: #cccccc;
 }
-
 .reachbody__text em {
   font-style: italic;
-  color: #ddd;
+  color: #cccccc;
 }
-
-.reachbody__text table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
+.reachbody__text a {
+  color: #B5FF00;
+  text-decoration: underline;
 }
-
-.reachbody__text th,
-.reachbody__text td {
-  padding: 0.8rem;
-  border: 1px solid #444;
-  text-align: left;
+.reachbody__text a:hover {
+  color: white;
 }
-
-.reachbody__text th {
-  background-color: rgba(255, 255, 255, 0.1);
-  font-weight: 600;
+@media screen and (max-width: 768px) {
+  .reachbody__text {
+    width: 90%;
+    line-height: 1.5;
+  }
 }
 
 .about {

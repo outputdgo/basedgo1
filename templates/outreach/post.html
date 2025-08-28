@@ -7,43 +7,21 @@
 <title>{{ outreach.title }} - BASE@OUTPUT</title>
 {% endblock %}
 {% block content %}
-    <!-- Post Header -->
-    <div class="reachinfo">
+    <div class= "reachinfo">
         <h1 class="special">{{outreach.title}}</h1>
-        <p>{{outreach.description}}</p>
-        <div class="post-meta">
-            <p style="font-size: 0.9rem; color: #888; margin-top: 1.5rem;">
-                Published on {{outreach.date|date:"F j, Y"}}
-            </p>
-        </div>
+            <p>{{outreach.description}}</p>
     </div>
-    
-    <!-- Decorative separator -->
-    <div style="text-align: center; margin: 2rem 0;">
-        <div style="width: 100px; height: 2px; background: linear-gradient(45deg, #666, #999); margin: 0 auto;"></div>
+    <hr>
+    <div class="reachbody">  
+        <div class="reachbody__text">{{outreach.body|safe}}</div>
     </div>
-    
-    <!-- Post Content -->
-        <div class="reachbody container">  
-            <div class="reachbody__text">{{outreach.body|safe}}</div>
-        </div>
-
-    <!-- Additional Images Section -->
-    {% if outreach.outreachimage_set.all %}
-    <div style="max-width: 900px; margin: 3rem auto; padding: 0 1rem;">
-        <h3 style="text-align: center; margin-bottom: 2rem; color: #ccc;">Gallery</h3>
-        {% for image in outreach.outreachimage_set.all %}
-            <div style="margin: 2rem 0; text-align: center;">
-                <img class="gallery-image" src="{{ image.image.url }}" alt="{{ outreach.title }}" 
-                     style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);">
-                {% if image.caption %}
-                <p style="margin-top: 1rem; font-style: italic; color: #aaa; font-size: 0.95rem;">{{ image.caption }}</p>
+    {% for image in outreach.outreachimage_set.all %}
+                <img class="project__imgbox" src="{{ image.image.url }}" alt="{{ project.title }}">
+                {% if image.description %}
+                <p class="project__image--description">{{ image.description }}</p>
                 {% endif %}
-            </div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    
+        <hr>
+            {% endfor %}
     <hr>
     <p class="reachfooter">Published on {{outreach.date}}</p>
 {% endblock %}
