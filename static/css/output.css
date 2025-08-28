@@ -223,10 +223,25 @@ h2 {
   font-size: 3.75rem;
   margin-bottom: 20px;
 }
+.cta p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
 @media screen and (max-width: 768px) {
   .cta h1 {
     font-size: 3rem;
   }
+}
+
+.reachout {
+  color: #B5FF00;
+  font-size: 2.25rem;
+  text-decoration: none;
+}
+.reachout:hover {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .footer {

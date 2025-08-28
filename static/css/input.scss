@@ -242,14 +242,29 @@ h2 {
   h1 {
     font-size: 3.75rem;
     margin-bottom: 20px;
+  
+  }
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
   }
    @media screen and (max-width: 768px) {
     h1 {
       font-size: 3rem;
     }
-
-
+  }
 }
+
+.reachout {
+  color: $primary-color;
+  font-size: 2.25rem;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+  }
 }  
   
 
