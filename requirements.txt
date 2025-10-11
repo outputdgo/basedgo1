@@ -1,3 +1,4 @@
+# System dependencies: libmagic1 (install with: sudo apt install -y libmagic1)
 asgiref==3.8.1
 Django==5.2.3
 django-ckeditor==6.7.3
@@ -6,5 +7,6 @@ Faker==37.4.0
 gunicorn==23.0.0
 pillow==11.2.1
 python-decouple==3.8
+python-magic==0.4.27
 sqlparse==0.5.3
 tzdata==2025.2

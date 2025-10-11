@@ -13,6 +13,9 @@ db.sqlite3-journal
 .env.production
 .env.staging
 cookies.txt
+*.md
+*.conf
+*.local
 
 # Security and deployment scripts (sensitive)
 *.sh
