@@ -81,6 +81,10 @@ backups/
 *.swp
 *.swo
 
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
 # OS files
 .DS_Store
 Thumbs.db
